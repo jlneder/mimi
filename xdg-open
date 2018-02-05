@@ -25,10 +25,20 @@ url_decode() {
 	echo -e "$(sed 's/%\([a-f0-9A-F]\{2\}\)/\\x\1/g')"
 }
 
+run() {
+  $SHELL -c "'$1' $(printf "%q " "${@:2}")"
+}
+
 fork_run() {
-	echo "$*"
-	"$@" &>/dev/null &
-	exit 0
+  echo "'$1' $(printf "%q " "${@:2}")"
+  # TODO make sure that this works.
+  if test -t 0 -o -p /dev/stdin; then
+    # In interactive mode, just run normally.
+    run "$@"
+  else
+    run "$@" &
+    exit 0
+  fi
 }
 
 exist() {
