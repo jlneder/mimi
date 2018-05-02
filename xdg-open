@@ -37,8 +37,8 @@ fork_run() {
     run "$@"
   else
     run "$@" &
-    exit 0
   fi
+  exit 0
 }
 
 exist() {
