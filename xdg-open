@@ -108,10 +108,8 @@ if [[ "$arg" =~ ^([a-zA-Z-]+): ]]; then
 		irc)
 			mime=x-scheme-handler/irc
 			;;
-    *)
-      protocol="^$protocol"
-      ;;
 	esac
+  protocol="^$protocol"
 fi
 
 
