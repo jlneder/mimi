@@ -87,6 +87,9 @@ if [[ -e "$arg" ]]; then
 	if [[ -f "$arg" ]]; then
 		ext="$(tr '[:upper:]' '[:lower:]' <<< "${arg##*.}")"
 	fi
+else
+  ext="$(tr '[:upper:]' '[:lower:]' <<< "${arg##*.}")"
+  ext="$ext\$"
 fi
 
 # protocol to mime ext
@@ -105,6 +108,9 @@ if [[ "$arg" =~ ^([a-zA-Z-]+): ]]; then
 		irc)
 			mime=x-scheme-handler/irc
 			;;
+    *)
+      protocol="^$protocol"
+      ;;
 	esac
 fi
 
