@@ -116,7 +116,10 @@ fi
 # application mime is specific
 [[ "$mime" =~ ^(audio|image|text|video)/ ]] && general_mime="${BASH_REMATCH[1]}/"
 
-exist "$TERM" || TERM="$(find_in_config TERM)"
+CONFIG_TERM=$(find_in_config TERM)
+if exist "$CONFIG_TERM"; then
+  TERM=$CONFIG_TERM
+fi
 
 # config
 for search in $ext $protocol $mime $general_mime; do
