@@ -75,13 +75,11 @@ protocol=''
 mime=''
 general_mime=''
 
-# fix file://.html#section
+# fix file:// with support for file://.html#section
 if [[ "$arg" =~ ^file://([^#]*\.html)#.*$ ]]; then
   protocol=file
   mime=text/html
   ext=html
-
-# fix file://
 elif [[ "$arg" =~ ^file://(.*)$ ]]; then
 	# strip file://
 	arg="$(url_decode <<<"${BASH_REMATCH[1]}")"
