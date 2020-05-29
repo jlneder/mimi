@@ -12,8 +12,8 @@ need_terminal() {
 }
 
 find_exec_in_desktop_file() {
-	# awk -F '[= ]' '$1 == "Exec" {print $2; exit}' # Improved to accept arguments
-	grep '^Exec' "$@" | tail -1 | sed 's/^Exec=//' | sed 's/%.//' | sed 's/^"//g' | sed 's/" *$//g'
+	# awk -F '[= ]' '$1 == "Exec" {print $2; exit}'
+	grep '^Exec' "$@" | tail -1 | sed 's/^Exec=//' | sed 's/%.//' | sed 's/^"//g' | sed 's/" *$//g' # Accepts Exec entries with arguments
 }
 
 find_desktop_file_by() {
