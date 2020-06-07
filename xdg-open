@@ -17,8 +17,8 @@ find_exec_in_desktop_file() {
 }
 
 find_desktop_file_by() {
-	local path=(/usr/share/applications/)
-	[[ -d "$HOME/.local/share/applications" ]] && path+=("$HOME/.local/share/applications")
+	local path=("$HOME/.local/share/applications")
+	[[ -z "$HOME/.local/share/applications" ]] && path=(/usr/share/applications/) || path+=(/usr/share/applications/)
 	grep -m 1 "^$1=.*$2" -R "${path[@]}" | awk -F : -v pat="$2" '{ print index($2, pat), length($2), $1 }' | sort -t ' ' -k1,1n -k2,2nr | awk '{ print $3; exit }'
 }
 
