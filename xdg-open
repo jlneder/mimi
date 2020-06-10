@@ -113,6 +113,9 @@ if [[ "$arg" =~ ^([a-zA-Z-]+): ]]; then
 		irc)
 			mime=x-scheme-handler/irc
 			;;
+		mailto)
+			mime=x-scheme-handler/mailto
+			;;
 	esac
   protocol="^$protocol"
 fi
