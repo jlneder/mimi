@@ -1,3 +1,11 @@
+# Improvements from original mimi
+
+I've tried to collect commits from a couple forks which fix a few bugs, allow shell interactive usage allow handling of html `#section` suffixes.
+
+In addition, I've added in handling of the `mailto` protocol via the `x-scheme-handler` mimetype, support for multiple arguments in `Exec` field of `.desktop` files and and prioritized the user's configuration for .desktop files. If you think of something mimi should be able to handle, feel free to open an issue!
+
+## Original Readme:
+
 #What is this?
 mimi is an improved verision of xdg-open.
 The original xdg-open works horribly without DE environment.
