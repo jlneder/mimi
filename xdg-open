@@ -32,8 +32,7 @@ run() {
 
 fork_run() {
   echo "'$1' $(printf "%q " "${@:2}")"
-  # TODO make sure that this works.
-  if test -t 0 -o -p /dev/stdin; then
+  if tty -s; then
     # In interactive mode, just run normally.
     run "$@"
   else
@@ -119,7 +118,6 @@ if [[ "$arg" =~ ^([a-zA-Z-]+): ]]; then
 	esac
   protocol="^$protocol"
 fi
-
 
 # application mime is specific
 [[ "$mime" =~ ^(audio|image|text|video)/ ]] && general_mime="${BASH_REMATCH[1]}/"
