@@ -2,7 +2,17 @@
 
 I've tried to collect commits from a couple forks which fix a few bugs, allow shell interactive usage allow handling of html `#section` suffixes.
 
-In addition, I've added in handling of the `mailto` protocol via the `x-scheme-handler` mimetype, support for multiple arguments in `Exec` field of `.desktop` files and and prioritized the user's configuration for .desktop files. If you think of something mimi should be able to handle, feel free to open an issue!
+In addition, I have added in:
+- handling of the `mailto` protocol via the `x-scheme-handler` mimetype
+- support for multiple arguments in `Exec` field of `.desktop` files
+- fixed running in background for non-interactive mode
+- prioritized the user's configuration for .desktop files
+
+If you think of something mimi should be able to handle, feel free to open an issue!
+
+### Tips and tricks
+- If your $TERM variable is not executable (i.e. something st-256color), you might want to set `TERM: $actualterm` in your mime.conf.
+-
 
 ## Original Readme:
 
@@ -12,12 +22,12 @@ The original xdg-open works horribly without DE environment.
 
 #usage
 1. you can define a list of 'how-to-open' in '~/.config/mimi/mime.conf' (read below for format)
-2. or you are lazy, mimi will search a best-fit app using .desktop file. Best fit is defined as 
+2. or you are lazy, mimi will search a best-fit app using .desktop file. Best fit is defined as
 	the first option sorted by mime order and then , if they have the same mime order, reverse sorted by generality
-	
+
 	For example, the best-fit app says it can open 'text/html' in the very beginning of its mime definition.
 	if two or more apps have the same priority, then we choose the app that can open the most number of file types.
-	
+
 #search order
 for example, I want to define how to open 'text/html'. mime will search in order like this
 
@@ -51,7 +61,7 @@ this is my own stuff
     inode/directory: xterm -e ranger
 
 it can be simplified by using:
-    
+
     rar: xterm -e 2a
 
 but if you have time, using mime-type is more precise
