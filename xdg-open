@@ -119,6 +119,9 @@ if [[ "$arg" =~ ^([a-zA-Z-]+): ]]; then
   protocol="^$protocol"
 fi
 
+# executable with arguments
+[[ ! "$mime" ]] && [[ -x "$1" ]] && mime="$(file -b --mime-type "$1")"
+
 # application mime is specific
 [[ "$mime" =~ ^(audio|image|text|video)/ ]] && general_mime="${BASH_REMATCH[1]}/"
 
@@ -151,7 +154,7 @@ done
 
 # use linopen as a fallback just in case
 if exist linopen; then
-	 fork_run "linopen" "$arg"
+	"linopen" "$arg"
 fi
 
 # ask
