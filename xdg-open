@@ -152,11 +152,6 @@ for search in $mime $general_mime; do
 	fi
 done
 
-# use linopen as a fallback just in case
-if exist linopen; then
-	"linopen" "$arg"
-fi
-
 # ask
 if exist dmenu; then
 	app=($(IFS=: stest -flx $PATH | sort -u | dmenu -p "how to open $arg"))
