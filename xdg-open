@@ -1,6 +1,6 @@
 #!/bin/bash
 
-readonly CONFIG="$HOME/.config/mimi/mime.conf"
+readonly CONFIG="$HOME/.config/mimi/mimi.conf"
 
 find_in_config() {
 	[[ -f "$CONFIG" ]] || return

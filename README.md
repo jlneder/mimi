@@ -11,7 +11,7 @@ In addition, I have added in:
 If you think of something mimi should be able to handle, feel free to open an issue!
 
 ### Tips and tricks
-- If your $TERM variable is not executable (i.e. something st-256color), you might want to set `TERM: $actualterm` in your mime.conf.
+- If your $TERM variable is not executable (i.e. something st-256color), you might want to set `TERM: $actualterm` in your mimi.conf.
 -
 
 ## Original Readme:
@@ -21,7 +21,7 @@ mimi is an improved verision of xdg-open.
 The original xdg-open works horribly without DE environment.
 
 #usage
-1. you can define a list of 'how-to-open' in '~/.config/mimi/mime.conf' (read below for format)
+1. you can define a list of 'how-to-open' in '~/.config/mimi/mimi.conf' (read below for format)
 2. or you are lazy, mimi will search a best-fit app using .desktop file. Best fit is defined as
 	the first option sorted by mime order and then , if they have the same mime order, reverse sorted by generality
 
