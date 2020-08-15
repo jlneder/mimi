@@ -2,19 +2,42 @@
 
 I've tried to collect commits from a couple forks which fix a few bugs, allow shell interactive usage allow handling of html `#section` suffixes.
 
-In addition, I have added in:
-- handling of the `mailto` protocol via the `x-scheme-handler` mimetype
+In addition, I have added the following:
+- handling of `mailto` and `tg`(telegram) protocols via the `x-scheme-handler` mimetype
 - support for multiple arguments in `Exec` field of `.desktop` files
 - fixed running in background for non-interactive mode
 - prioritized the user's configuration for .desktop files
 
-If you think of something mimi should be able to handle, feel free to open an issue!
+If you think of something (protocol, mimetypes) that mimi should be able to handle, feel free to open an issue!
 
 ### Tips and tricks
-- If your $TERM variable is not executable (i.e. something st-256color), you might want to set `TERM: $actualterm` in your mimi.conf.
--
+- If your $TERM variable is not executable (i.e. something st-256color), you might want to set `TERM: $executableterm` in your mimi.conf.
 
-## Original Readme:
+## Example configuration
+
+``` sh
+TERM: st
+
+audio/: mpv
+video/: mpv
+image/: sxiv-open
+pdf: zathura
+application/x-shockwave-flash: flashplayer
+application/xhtml_xml: chromium
+text/html: chromium
+text/xml: chromium
+x-scheme-handler/http: chromium
+x-scheme-handler/https: chromium
+x-scheme-handler/ftp: chromium
+x-scheme-handler/about=chromium
+x-scheme-handler/unknown=chromium
+# TODO check whether this works
+x-scheme-handler/tg: telegram-desktop --
+# TODO is this necessary ? (.desktop should do it)
+x-scheme-handler/mailto: st -e neomutt
+```
+
+## Original README:
 
 #What is this?
 mimi is an improved verision of xdg-open.
@@ -29,7 +52,7 @@ The original xdg-open works horribly without DE environment.
 	if two or more apps have the same priority, then we choose the app that can open the most number of file types.
 
 #search order
-for example, I want to define how to open 'text/html'. mime will search in order like this
+for example, I want to define how to open 'text/html'. mimi will search in order like this
 
 1. 'txt' in your config
 2. <protocol> in your config (i.e. http, ftp, magnet) ...etc.
