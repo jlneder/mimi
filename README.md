@@ -16,13 +16,13 @@ If you think of something (protocol, mimetypes) that mimi should be able to hand
 ## Example configuration
 
 ``` sh
+
 TERM: st
 
 audio/: mpv
 video/: mpv
 image/: sxiv-open
 pdf: zathura
-application/x-shockwave-flash: flashplayer
 application/xhtml_xml: chromium
 text/html: chromium
 text/xml: chromium
@@ -31,10 +31,8 @@ x-scheme-handler/https: chromium
 x-scheme-handler/ftp: chromium
 x-scheme-handler/about=chromium
 x-scheme-handler/unknown=chromium
-# TODO check whether this works
-x-scheme-handler/tg: telegram-desktop --
-# TODO is this necessary ? (.desktop should do it)
-x-scheme-handler/mailto: st -e neomutt
+
+# vim: ft=xdefaults
 ```
 
 ## Original README:
