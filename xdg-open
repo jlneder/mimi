@@ -118,6 +118,9 @@ if [[ "$arg" =~ ^([a-zA-Z-]+): ]]; then
 		tg)
 			mime=x-scheme-handler/tg
 			;;
+		spotify)
+			mime=x-scheme-handler/spotify
+			;;
 	esac
   protocol="^$protocol"
 fi
