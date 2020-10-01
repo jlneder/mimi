@@ -3,7 +3,7 @@
 I've tried to collect commits from a couple forks which fix a few bugs, allow shell interactive usage allow handling of html `#section` suffixes.
 
 In addition, I have added the following:
-- handling of `mailto` and `tg`(telegram) protocols via the `x-scheme-handler` mimetype
+- custom handling of `mailto`, `spotify` and `tg`(telegram) URI protocols via the `x-scheme-handler` mimetype(!)
 - support for multiple arguments in `Exec` field of `.desktop` files
 - fixed running in background for non-interactive mode
 - prioritized the user's configuration for .desktop files
@@ -21,7 +21,7 @@ TERM: st
 
 audio/: mpv
 video/: mpv
-image/: sxiv-open
+image/: sxiv
 pdf: zathura
 application/xhtml_xml: chromium
 text/html: chromium
