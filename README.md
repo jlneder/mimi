@@ -1,6 +1,6 @@
 # Improvements from original mimi
 
-I've tried to collect commits from a couple forks which fix a few bugs, allow shell interactive usage allow handling of html `#section` suffixes.
+I've tried to collect commits from a couple forks which fix a few bugs, allow shell interactive usage and allow handling of html `#section` suffixes.
 
 In addition, I have added the following:
 - custom handling of `mailto`, `spotify` and `tg`(telegram) URI protocols via the `x-scheme-handler` mimetype(!)
