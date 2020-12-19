@@ -103,24 +103,24 @@ if [[ "$arg" =~ ^([a-zA-Z-]+): ]]; then
 	case "$protocol" in
 		http|https)
 			mime=text/html
-			ext=html
-			;;
+			ext=html ;;
 		magnet)
 			mime=application/x-bittorrent
-			ext=torrent
-			;;
+			ext=torrent ;;
 		irc)
-			mime=x-scheme-handler/irc
-			;;
+			mime=x-scheme-handler/irc ;;
 		mailto)
-			mime=x-scheme-handler/mailto
-			;;
+			mime=x-scheme-handler/mailto ;;
 		tg)
-			mime=x-scheme-handler/tg
-			;;
+			mime=x-scheme-handler/tg ;;
 		spotify)
-			mime=x-scheme-handler/spotify
-			;;
+			mime=x-scheme-handler/spotify ;;
+		gemini)
+			mime=x-scheme-handler/gemini ;;
+		gopher)
+			mime=x-scheme-handler/gopher ;;
+		msteams)
+			mime=x-scheme-handler/msteams ;;
 	esac
   protocol="^$protocol"
 fi
