@@ -1,9 +1,10 @@
 > See the [original README](#old-readme) for general usage.
 
-## Table of Contents
+# Table of Contents
 <!-- vim-markdown-toc GFM -->
 
 * [Improvements from the original mimi](#improvements-from-the-original-mimi)
+    * [Xdg-email](#xdg-email)
     * [Example configuration](#example-configuration)
     * [Tips and tricks](#tips-and-tricks)
 * [Installation](#installation)
@@ -30,6 +31,12 @@ In addition, I have added the following:
 - prioritized the user's configuration for .desktop files
 
 If you think of something (protocol, mimetypes) that mimi should be able to handle, feel free to open an issue!
+
+## Xdg-email
+
+I have also added a drop-in replacement for the `xdg-email` script, part of the common `xdg-utils` package, because some applications (such as `chromium`) use it to handle the
+`mailto` protocol.
+This script simply calls `xdg-open` (aka `mimi`) instead.
 
 ## Example configuration
 
@@ -70,7 +77,7 @@ MENUARGS: -dmenu
 ## From git
 
 - Clone the repository: `git clone https://github.com/BachoSeven/mimi.git`
-- To replace the system's `xdg-open`, just do `sudo make install`.
+- To replace the system's `xdg-open` and `xdg-email`, just do `sudo make install`.
 
 ## From the AUR
 

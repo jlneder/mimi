@@ -1,0 +1,8 @@
+#!/bin/sh
+
+# This simply replaces `xdg-email` by calling `xdg-open` instead.
+# It's useful if you use a custom `xdg-open` script.
+#
+# My motivation for using this was that chromium has hardcoded using `xdg-email` for handling the `mailto` protocol.
+
+xdg-open "$1"
