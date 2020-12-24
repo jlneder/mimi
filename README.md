@@ -1,16 +1,18 @@
-> See the [original README](#old-readme) for general usage.
+> See the [old README](#old-readme) for general usage.
 
 # Table of Contents
+
 <!-- vim-markdown-toc GFM -->
 
 * [Improvements from the original mimi](#improvements-from-the-original-mimi)
+    * [New features](#new-features)
     * [Xdg-email](#xdg-email)
     * [Example configuration](#example-configuration)
     * [Tips and tricks](#tips-and-tricks)
 * [Installation](#installation)
-    * [From git](#from-git)
-    * [From the AUR](#from-the-aur)
-* [Old README](#old-readme)
+    * [From Git](#from-git)
+    * [From AUR](#from-aur)
+* [old README](#old-readme)
     * [What is this?](#what-is-this)
         * [usage](#usage)
         * [search order](#search-order)
@@ -20,7 +22,8 @@
 
 # Improvements from the original mimi
 
-I've collected commits from some forks which fix bugs, allow shell interactive usage and handling of HTML urls' `#section` suffixes.
+## New features
+
 
 In addition, I have added the following:
 - support for custom `menu` programs in alternative to `dmenu`, by setting the `MENU` and `MENUARGS` configuration variable. `MENU` has to be an executable, and also compatible with `dmenu`'s `-p` flag; i.e. for `rofi` use `MENU: rofi -dmenu`. If `MENU` is not set AND `dmenu` is not available, a notification is sent to the user.
@@ -30,7 +33,9 @@ In addition, I have added the following:
 - fixed running in background for non-interactive mode
 - prioritized the user's configuration for .desktop files
 
-If you think of something (protocol, mimetypes) that mimi should be able to handle, feel free to open an issue!
+I have also collected a few commits from some other forks, which allow for shell interactive usage and handling of HTML urls' `#section` suffixes.
+
+If you think of something (i.e. a protocol) that mimi should be able to handle, feel free to open an issue!
 
 ## Xdg-email
 
@@ -51,9 +56,9 @@ audio/: mpv
 video/: mpv
 image/: sxiv
 pdf: zathura
-application/xhtml_xml: chromium
 text/html: chromium
 text/xml: chromium
+application/xhtml_xml: chromium
 x-scheme-handler/http: chromium
 x-scheme-handler/https: chromium
 x-scheme-handler/ftp: chromium
@@ -65,8 +70,8 @@ x-scheme-handler/unknown=chromium
 
 ## Tips and tricks
 
-- If your $TERM variable is not executable (i.e. something st-256color), you might want to set `TERM: yourterminal` in your mimi.conf.
-- You can set MENU and MENUARGS to use a dmenu alternative. For instance, to use rofi:
+- If your $TERM variable is not executable (i.e. something st-256color), you might want to set `TERM: yourterminal` in your `mimi.conf`.
+- You can set MENU and MENUARGS in order to use a dmenu alternative. For instance, to use `rofi`:
 ```
 MENU: rofi
 MENUARGS: -dmenu
@@ -74,19 +79,19 @@ MENUARGS: -dmenu
 
 # Installation
 
-## From git
+## From Git
 
 - Clone the repository: `git clone https://github.com/BachoSeven/mimi.git`
 - To replace the system's `xdg-open` and `xdg-email`, just do `sudo make install`.
 
-## From the AUR
+## From AUR
 
 You can find a handy `xdg-utils`-conflicting package [here](https://aur.archlinux.org/packages/mimi-bachoseven-git/).
 
-# Old README
+# old README
 
 ## What is this?
-mimi is an improved verision of xdg-open.
+mimi is an improved version of xdg-open.
 The original xdg-open works horribly without DE environment.
 
 ### usage
