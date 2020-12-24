@@ -6,6 +6,9 @@
 * [Improvements from the original mimi](#improvements-from-the-original-mimi)
     * [Example configuration](#example-configuration)
     * [Tips and tricks](#tips-and-tricks)
+* [Installation](#installation)
+    * [From git](#from-git)
+    * [From the AUR](#from-the-aur)
 * [Old README](#old-readme)
     * [What is this?](#what-is-this)
         * [usage](#usage)
@@ -61,6 +64,17 @@ x-scheme-handler/unknown=chromium
 MENU: rofi
 MENUARGS: -dmenu
 ```
+
+# Installation
+
+## From git
+
+- Clone the repository: `git clone https://github.com/BachoSeven/mimi.git`
+- To replace the system's `xdg-open`, just do `sudo make install`.
+
+## From the AUR
+
+You can find a handy `xdg-utils`-conflicting package [here](https://aur.archlinux.org/packages/mimi-bachoseven-git/).
 
 # Old README
 
