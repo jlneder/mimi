@@ -27,18 +27,18 @@ url_decode() {
 }
 
 run() {
-  $SHELL -c "'$1' $(printf "%q " "${@:2}")"
+	$SHELL -c "'$1' $(printf "%q " "${@:2}")"
 }
 
 fork_run() {
-  echo "'$1' $(printf "%q " "${@:2}")"
-  if tty -s; then
-    # In interactive mode, just run normally.
-    run "$@"
-  else
-    run "$@" &
-  fi
-  exit 0
+	echo "'$1' $(printf "%q " "${@:2}")"
+	if tty -s; then
+	  # In interactive mode, just run normally.
+	  run "$@"
+	else
+	  run "$@" &
+	fi
+	exit 0
 }
 
 exists() {
@@ -76,9 +76,9 @@ general_mime=''
 
 # fix file:// with support for file://.html#section
 if [[ "$arg" =~ ^file://([^#]*\.html)#.*$ ]]; then
-  protocol=file
-  mime=text/html
-  ext=html
+	protocol=file
+	mime=text/html
+	ext=html
 elif [[ "$arg" =~ ^file://(.*)$ ]]; then
 	# strip file://
 	arg="$(url_decode <<<"${BASH_REMATCH[1]}")"
@@ -92,8 +92,8 @@ if [[ -e "$arg" ]]; then
 		ext="$(tr '[:upper:]' '[:lower:]' <<< "${arg##*.}")"
 	fi
 else
-  ext="$(tr '[:upper:]' '[:lower:]' <<< "${arg##*.}")"
-  ext="$ext\$"
+	ext="$(tr '[:upper:]' '[:lower:]' <<< "${arg##*.}")"
+	ext="$ext\$"
 fi
 
 # protocol to mime ext
@@ -122,7 +122,7 @@ if [[ "$arg" =~ ^([a-zA-Z-]+): ]]; then
 		msteams)
 			mime=x-scheme-handler/msteams ;;
 	esac
-  protocol="^$protocol"
+	protocol="^$protocol"
 fi
 
 # executable with arguments
@@ -133,12 +133,12 @@ fi
 
 CONFIG_TERM=$(find_in_config TERM)
 if exists "$CONFIG_TERM"; then
-  TERM=$CONFIG_TERM
+	TERM=$CONFIG_TERM
 fi
 
 CONFIG_MENU=$(find_in_config MENU)
 if [[ -n "$CONFIG_MENU" ]]; then
-  MENU=$CONFIG_MENU
+	MENU=$CONFIG_MENU
 	MENUARGS=$(find_in_config MENUARGS)
 else
 	MENU=dmenu
