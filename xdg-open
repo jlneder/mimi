@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 readonly CONFIG="$HOME/.config/mimi/mimi.conf"
 
@@ -41,7 +41,7 @@ fork_run() {
   exit 0
 }
 
-exist() {
+exists() {
 	type "$@" &>/dev/null
 }
 
@@ -132,14 +132,22 @@ fi
 [[ "$mime" =~ ^(audio|image|text|video)/ ]] && general_mime="${BASH_REMATCH[1]}/"
 
 CONFIG_TERM=$(find_in_config TERM)
-if exist "$CONFIG_TERM"; then
+if exists "$CONFIG_TERM"; then
   TERM=$CONFIG_TERM
+fi
+
+CONFIG_MENU=$(find_in_config MENU)
+if [[ -n "$CONFIG_MENU" ]]; then
+  MENU=$CONFIG_MENU
+	MENUARGS=$(find_in_config MENUARGS)
+else
+	MENU=dmenu
 fi
 
 # config
 for search in $ext $protocol $mime $general_mime; do
 	app=($(find_in_config "$search"))
-	[[ "${app[0]}" == TERM ]] && exist "$TERM" && app[0]="$TERM"
+	[[ "${app[0]}" == TERM ]] && exists "$TERM" && app[0]="$TERM"
 	[[ "${app[*]}" ]] && fork_run "${app[@]}" "$arg"
 done
 
@@ -151,7 +159,7 @@ for search in $mime $general_mime; do
 		app=($(find_exec_in_desktop_file <"$desktop"))
 		if need_terminal <"$desktop"; then
 			echo "term: $TERM"
-			exist "$TERM" && fork_run "$TERM" -e "${app[@]}" "$arg"
+			exists "$TERM" && fork_run "$TERM" -e "${app[@]}" "$arg"
 		else
 			fork_run "${app[@]}" "$arg"
 		fi
@@ -159,7 +167,9 @@ for search in $mime $general_mime; do
 done
 
 # ask
-if exist dmenu; then
-	app=($(IFS=: stest -flx $PATH | sort -u | dmenu -p "how to open $arg"))
+if exists $MENU; then
+	app=($(IFS=:; stest -flx $PATH | sort -u | $MENU $MENUARGS -p "how to open $arg"))
 	[[ "${app[*]}" ]] && fork_run "${app[@]}" "$arg"
+elif exists notify-send; then
+	notify-send "Could not find opener, exiting..."
 fi
