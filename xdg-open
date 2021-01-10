@@ -121,6 +121,8 @@ if [[ "$arg" =~ ^([a-zA-Z-]+): ]]; then
 			mime=x-scheme-handler/gopher ;;
 		msteams)
 			mime=x-scheme-handler/msteams ;;
+		element)
+			mime=x-scheme-handler/element ;;
 	esac
 	protocol="^$protocol"
 fi
