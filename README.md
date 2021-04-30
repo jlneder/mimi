@@ -5,18 +5,18 @@
 <!-- vim-markdown-toc GFM -->
 
 * [Improvements from the original mimi](#improvements-from-the-original-mimi)
-    * [New features](#new-features)
-    * [Xdg-email](#xdg-email)
-    * [Example configuration](#example-configuration)
-    * [Tips and tricks](#tips-and-tricks)
+  * [New features](#new-features)
+  * [Xdg-email](#xdg-email)
+  * [Example configuration](#example-configuration)
+  * [Tips and tricks](#tips-and-tricks)
 * [Installation](#installation)
-    * [From Git](#from-git)
-    * [From AUR](#from-aur)
+  * [From Git](#from-git)
+  * [From AUR](#from-aur)
 * [old README](#old-readme)
-    * [What is this?](#what-is-this)
-        * [usage](#usage)
-        * [search order](#search-order)
-        * [customize](#customize)
+  * [What is this?](#what-is-this)
+    * [usage](#usage)
+    * [search order](#search-order)
+    * [customize](#customize)
 
 <!-- vim-markdown-toc -->
 
@@ -49,7 +49,7 @@ This script simply calls `xdg-open` (aka `mimi`) instead.
 
 TERM: st
 
-# This is the default
+# This is a default
 MENU: dmenu
 
 audio/: mpv
@@ -70,11 +70,17 @@ x-scheme-handler/unknown=chromium
 
 ## Tips and tricks
 
-- If your $TERM variable is not executable (i.e. something st-256color), you might want to set `TERM: yourterminal` in your `mimi.conf`.
-- You can set MENU and MENUARGS in order to use a dmenu alternative. For instance, to use `rofi`:
+- If your `TERM` variable is not executable (i.e. if it is set to `st-256color`), you might want to set `TERM: yourterminal` in your `mimi.conf`.
+- You can set `MENU` and `MENUARGS` in order to use a dmenu alternative. For instance, to use `rofi`:
 ```
 MENU: rofi
 MENUARGS: -dmenu
+```
+- __Note__ that `MENUARGS` can also be used to pass additional arguments to `dmenu`, but you will need to define the `MENU` variable in order for these to be parsed. Additionally,
+  if `MENUARGS` contains more than one argument, these should be separated by a colon `:`. For instance:
+```
+MENU: dmenu
+MENUARGS: -b:-i:-f
 ```
 
 # Installation
