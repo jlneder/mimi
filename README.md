@@ -24,11 +24,11 @@
 
 ## New features
 
-
 In addition, I have added the following:
 - support for custom `menu` programs in alternative to `dmenu`, by setting the `MENU` and `MENUARGS` configuration variable. `MENU` has to be an executable, and also compatible with `dmenu`'s `-p` flag; i.e. for `rofi` use `MENU: rofi -dmenu`. If `MENU` is not set AND `dmenu` is not available, a notification is sent to the user.
 - custom handling of `mailto`, `spotify` and `tg`(telegram) URI protocols via the `x-scheme-handler` mimetype(!)
 - support for multiple arguments in `Exec` field of `.desktop` files
+- support for symbolic links
 - apps in your `$PATH` are now correctly listed when choosing an opener from `${MENU:-dmenu}`
 - fixed running in background for non-interactive mode
 - prioritized the user's configuration for .desktop files
@@ -42,6 +42,8 @@ If you think of something (i.e. a protocol) that mimi should be able to handle, 
 I have also added a drop-in replacement for the `xdg-email` script, part of the common `xdg-utils` package, because some applications (such as `chromium`) use it to handle the
 `mailto` protocol.
 This script simply calls `xdg-open` (aka `mimi`) instead.
+
+---
 
 ## Example configuration
 
@@ -83,6 +85,8 @@ MENU: dmenu
 MENUARGS: -b:-i:-f
 ```
 
+---
+
 # Installation
 
 ## From Git
@@ -93,6 +97,8 @@ MENUARGS: -b:-i:-f
 ## From AUR
 
 You can find a handy `xdg-utils`-conflicting package [here](https://aur.archlinux.org/packages/mimi-bachoseven-git/).
+
+---
 
 # old README
 

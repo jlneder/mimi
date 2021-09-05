@@ -87,7 +87,7 @@ fi
 
 if [[ -e "$arg" ]]; then
 	# file or dir
-	mime="$(file -ib -- "$arg" | cut -d';' -f1)"
+	mime="$(file -b --mime-type "$arg")"
 	if [[ -f "$arg" ]]; then
 		ext="$(tr '[:upper:]' '[:lower:]' <<< "${arg##*.}")"
 	fi
@@ -128,7 +128,12 @@ if [[ "$arg" =~ ^([a-zA-Z-]+): ]]; then
 fi
 
 # executable with arguments
-[[ ! "$mime" ]] && [[ -x "$1" ]] && mime="$(file -b --mime-type "$1")"
+if [ ! "$mime" ] && [ -x "$1" ]; then
+	mime="$(file -b --mime-type "$1")"
+fi
+
+# symlink
+[ "$mime" = "inode/symlink" ] && mime="$(file -b --mime-type "$(realpath "$arg")")"
 
 # application mime is specific
 [[ "$mime" =~ ^(audio|image|text|video)/ ]] && general_mime="${BASH_REMATCH[1]}/"
