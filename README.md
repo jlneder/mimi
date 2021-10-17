@@ -67,10 +67,10 @@ audio/: mpv
 video/: mpv
 image/: sxiv
 pdf: zathura
-text/html: chromium
-text/xml: chromium
 # Environmental variables also work
 application/json: $TERMINAL -e $EDITOR
+text/html: chromium
+text/xml: chromium
 application/xhtml_xml: chromium
 x-scheme-handler/http: chromium
 x-scheme-handler/https: chromium
