@@ -105,7 +105,8 @@ You can find a handy `xdg-utils`-conflicting package [here](https://aur.archlinu
 
 ---
 
-<details><summary><a href="old-readme">Old README</a></summary><p>
+<details>
+<summary><a href="#old-readme">Old README</a></summary>
 
 # Old README
 ## What is this?
@@ -157,7 +158,7 @@ it can be simplified by using:
     rar: xterm -e 2a
 
 but if you have time, using mime-type is more precise
-</p></details>
+</details>
 
 # Alternatives
 ## Shell scripts
