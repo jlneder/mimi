@@ -153,6 +153,14 @@ MENU=${ALT_MENU:-dmenu}
 for search in $ext $protocol $mime $general_mime; do
 	app=($(find_in_config "$search"))
 	[[ "${app[0]}" == TERM ]] && exists "$TERM" && app[0]="$TERM"
+	i=0
+	for w in "${app[@]}"; do
+	[[ -n "$(echo "$w" | grep '^\$')" ]] && {
+		program="$(echo "$w" | sed 's/^\$//')"
+		app[$i]="$(env | grep "$program" | head -1 | cut -d = -f 2)"
+		}
+		i++;
+	done
 	[[ "${app[*]}" ]] && fork_run "${app[@]}" "$arg"
 done
 

@@ -1,4 +1,4 @@
-> See the [old README](#old-readme) for general usage.
+> See the [Old README](#old-readme) for general usage.
 
 # Table of Contents
 
@@ -12,11 +12,15 @@
 * [Installation](#installation)
   * [From Git](#from-git)
   * [From AUR](#from-aur)
-* [old README](#old-readme)
+* [Old README](#old-readme)
   * [What is this?](#what-is-this)
     * [usage](#usage)
     * [search order](#search-order)
     * [customize](#customize)
+* [Alternatives](#alternatives)
+  * [Shell scripts](#shell-scripts)
+  * [Rust](#rust)
+  * [Node.js (xD)](#nodejs-xd)
 
 <!-- vim-markdown-toc -->
 
@@ -48,12 +52,13 @@ This script simply calls `xdg-open` (aka `mimi`) instead.
 ## Example configuration
 
 ``` sh
-
+! This is a comment
 TERM: st
 
-# This is a default
+! Default option
 MENU: dmenu
 
+# This is also a comment
 audio/: mpv
 video/: mpv
 image/: sxiv
@@ -67,7 +72,7 @@ x-scheme-handler/ftp: chromium
 x-scheme-handler/about=chromium
 x-scheme-handler/unknown=chromium
 
-# vim: ft=xdefaults
+! vim: ft=xdefaults
 ```
 
 ## Tips and tricks
@@ -100,8 +105,9 @@ You can find a handy `xdg-utils`-conflicting package [here](https://aur.archlinu
 
 ---
 
-# old README
+<details><summary><a href="old-readme">Old README</a></summary><p>
 
+# Old README
 ## What is this?
 mimi is an improved version of xdg-open.
 The original xdg-open works horribly without DE environment.
@@ -151,3 +157,13 @@ it can be simplified by using:
     rar: xterm -e 2a
 
 but if you have time, using mime-type is more precise
+</p></details>
+
+# Alternatives
+## Shell scripts
+- [linopen](https://github.com/sarcasticadmin/linopen) (unmaintained)
+- [sx-open](https://code.fleshless.org/fbt/sx-open/src/branch/master/sx-open)
+## Rust
+- [handlr](https://github.com/chmln/handlr)
+## Node.js (xD)
+- [mimejs](https://github.com/karabaja4/mimejs)
