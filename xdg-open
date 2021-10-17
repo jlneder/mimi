@@ -12,7 +12,7 @@ need_terminal() {
 }
 
 find_exec_in_desktop_file() {
-	# Accepts Exec entries with arguments
+	# accepts Exec entries with arguments
 	grep '^Exec' "$@" | tail -1 | sed 's/^Exec=//' | sed 's/%.//' | sed 's/^"//g' | sed 's/" *$//g'
 }
 
@@ -33,7 +33,7 @@ run() {
 fork_run() {
 	echo "'$1' $(printf "%q " "${@:2}")"
 	if tty -s; then
-	  # In interactive mode, just run normally.
+	  # in interactive mode, just run normally.
 	  run "$@"
 	else
 	  run "$@" &
@@ -153,13 +153,14 @@ MENU=${ALT_MENU:-dmenu}
 for search in $ext $protocol $mime $general_mime; do
 	app=($(find_in_config "$search"))
 	[[ "${app[0]}" == TERM ]] && exists "$TERM" && app[0]="$TERM"
+	# handle environmental variables
 	i=0
 	for w in "${app[@]}"; do
-	[[ -n "$(echo "$w" | grep '^\$')" ]] && {
-		program="$(echo "$w" | sed 's/^\$//')"
-		app[$i]="$(env | grep "$program" | head -1 | cut -d = -f 2)"
-		}
-		i++;
+		if [[ -n "$(echo "$w" | grep '^\$')" ]]; then
+			program="$(echo "$w" | sed 's/^\$//')"
+			app[$i]="$(env | grep "$program" | head -1 | cut -d = -f 2)"
+		fi
+		i=$((i+1));
 	done
 	[[ "${app[*]}" ]] && fork_run "${app[@]}" "$arg"
 done
