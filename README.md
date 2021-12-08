@@ -85,7 +85,7 @@ x-scheme-handler/unknown = chromium
 
 - If your `TERM` variable is not executable (i.e. if it is set to `st-256color`), you might want to set `TERM: yourterminal` in your `mimi.conf`.
 - You can set `MENU` and `MENUARGS` in order to use a dmenu alternative. For instance, to use `rofi`:
-```
+``` sh
 MENU: rofi
 MENUARGS: -dmenu
 ```
