@@ -100,6 +100,8 @@ MENUARGS: -b:-i:-f
 
 # Installation
 
+You need `stest` binary from the `dmenu` package for the menu function to work.
+
 ## From Git
 
   - Clone the repository: `git clone https://github.com/BachoSeven/mimi.git`
