@@ -171,7 +171,10 @@ You need `stest` binary from the `dmenu` package for the menu function to work.
 ## Shell scripts
   - [linopen](https://github.com/sarcasticadmin/linopen) (unmaintained)
   - [sx-open](https://code.fleshless.org/fbt/sx-open/src/branch/master/sx-open)
+  - [shopen](https://github.com/ehawkvu/shopen) (similar in vein to sx-open but aims to support XDG Desktop files) 
 ## Rust
   - [handlr](https://github.com/chmln/handlr)
 ## Node.js (xD)
   - [mimejs](https://github.com/karabaja4/mimejs)
+## Scheme
+  - [jaro](https://github.com/isamert/jaro)
